@@ -68,3 +68,12 @@ let js: user = {
 
   branch: ["history"],
 };
+
+enum Grade {
+  U = 1,
+  P,
+  A,
+  B,
+  C,
+}
+console.log(Grade.U, Grade.P, Grade.A, Grade.B, Grade.C);
