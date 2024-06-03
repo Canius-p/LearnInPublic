@@ -25,3 +25,6 @@ class guitarist implements Music {
     return `${this.name} plays ${action}`;
   }
 }
+
+const page = new guitarist('page', 'guitar');
+page.play('strum');
