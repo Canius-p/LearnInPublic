@@ -21,8 +21,17 @@ export default class fullList implements List {
   load(): void {
     const storedList: string | null = localStorage.getItem('Mylist');
     if (typeof storedList !== 'string') return;
-    const parsedList: ListItem[] = JSON.parse(storedList);
-    this._list = parsedList;
+
+    const parsedList: { _id: string; _items: string; _checked: boolean }[] =
+      JSON.parse(storedList);
+    parsedList.forEach(itemObj => {
+      const newListItem = new ListItem(
+        itemObj._id,
+        itemObj._items,
+        itemObj._checked
+      );
+      fullList.Instance.addItem(newListItem);
+    });
   }
 
   clearList(): void {
