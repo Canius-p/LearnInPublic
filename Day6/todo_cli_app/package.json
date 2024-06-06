@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "figlet": "^1.7.0",
+    "lodash": "^4.17.21",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.5.8",
+    "@types/node": "^20.14.2"
+  }
+}
