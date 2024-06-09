@@ -4,6 +4,7 @@ import rootrouter from './routes/index.route';
 import { PrismaClient } from '@prisma/client';
 
 const app: Application = express();
+app.use(express.json());
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');
