@@ -4,3 +4,5 @@ import path from 'path';
 dotenv.config({ path: '.env' });
 
 export const PORT = process.env.PORT || 3000;
+
+export const jsonwebtokenSecret = process.env.jsonwebtokenSecret!;

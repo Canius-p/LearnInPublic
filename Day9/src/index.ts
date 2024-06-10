@@ -2,6 +2,7 @@ import express, { Request, Response, Application } from 'express';
 import { PORT } from './secrets';
 import rootrouter from './routes/index.route';
 import { PrismaClient } from '@prisma/client';
+import { errorHandler } from './middleware/error';
 
 const app: Application = express();
 app.use(express.json());
@@ -14,7 +15,7 @@ app.use('/api', rootrouter);
 export const prisma = new PrismaClient({
   log: ['query'],
 });
-
+app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`Example app listening on port !http://127.0.0.1:${PORT}`);
 });
