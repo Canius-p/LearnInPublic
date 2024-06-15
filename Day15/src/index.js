@@ -1,4 +1,5 @@
 import express from 'express';
+import { query, validationResult, body } from 'express-validator';
 
 const app = express();
 
@@ -49,12 +50,18 @@ app.get('/', (req, res) => {
 });
 app.use(loggingMiddleware);
 
-app.get('/api/users', (req, res) => {
-  return res.status(200).json({
-    message: 'Data fetched successfully',
-    data: mockData,
-  });
-});
+app.get(
+  '/api/users',
+  query('filter').isString().notEmpty().isLength({ min: 1, max: 3 }),
+  (req, res) => {
+    const {
+      query: { filter, value },
+    } = req;
+    if (filter && value)
+      return res.send(mockData.filter(user => user[filter].includes(value)));
+    return res.send(mockData);
+  }
+);
 
 app.get('/api/users/:id', resolveIndexById, (req, res) => {
   const { findIndex } = req;
@@ -64,7 +71,7 @@ app.get('/api/users/:id', resolveIndexById, (req, res) => {
   });
 });
 
-app.post('/api/users', (req, res) => {
+app.post('/api/users', body(), (req, res) => {
   const { name, age, city } = req.body;
   const newUser = {
     id: mockData.length + 1,
