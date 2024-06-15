@@ -71,21 +71,47 @@ app.get('/api/users/:id', resolveIndexById, (req, res) => {
   });
 });
 
-app.post('/api/users', body(), (req, res) => {
-  const { name, age, city } = req.body;
-  const newUser = {
-    id: mockData.length + 1,
-    name,
-    age,
-    city,
-  };
-  mockData.push(newUser);
-  return res.status(201).json({
-    message: 'Data created successfully',
-    data: newUser,
-  });
-});
+// app.post(
+//   '/api/users',
+//   body('name')
+//     .notEmpty()
+//     .withMessage('Name is required')
+//     .isLength({ min: 3, max: 32 })
+//     .withMessage('Name must be between 3 and 32 characters'),
+//   (req, res) => {
+//     const result = validationResult(req);
+//     console.log(result);
+//     const { body } = req;
+//     const newUser = { id: mockData[mockData.length - 1].id + 1, ...body };
+//     mockData.push(newUser);
+//     return res.status(200).json({
+//       message: 'Data created successfully',
+//       data: newUser,
+//     });
+//   }
+// );
 
+app.post(
+  '/api/users',
+  [
+    body('name')
+      .notEmpty()
+      .withMessage('Name is required')
+      .isLength({ min: 3, max: 32 })
+      .withMessage('Name must be between 3 and 32 characters'),
+  ],
+  (req, res) => {
+    const result = validationResult(req);
+    console.log(result);
+    const { body } = req;
+    const newUser = { id: mockData[mockData.length - 1].id + 1, ...body };
+    mockData.push(newUser);
+    return res.status(200).json({
+      message: 'Data created successfully',
+      data: newUser,
+    });
+  }
+);
 app.put('/api/users/:id', resolveIndexById, (req, res) => {
   const { name, age, city } = req.body;
   const { findIndex } = req;
