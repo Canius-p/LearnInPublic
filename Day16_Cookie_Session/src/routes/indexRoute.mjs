@@ -5,6 +5,7 @@ import productRoutes from './productRoute.mjs';
 const router = Router();
 
 router.get('/', (req, res) => {
+  res.cookie('mycookie', 'nabin', { maxAge: 60000 });
   res.status(201).send({ msg: 'Hello' });
 });
 
