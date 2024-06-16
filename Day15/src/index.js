@@ -103,6 +103,9 @@ app.post(
   (req, res) => {
     const result = validationResult(req);
     console.log(result);
+    if (result.isEmpty()) {
+      return res.status(400).send({ errors: result.array() });
+    }
     const { body } = req;
     const newUser = { id: mockData[mockData.length - 1].id + 1, ...body };
     mockData.push(newUser);
