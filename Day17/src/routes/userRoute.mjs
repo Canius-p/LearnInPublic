@@ -104,7 +104,7 @@ router.post('/api/auth', (req, res) => {
 
 router.get('/api/auth/status', (req, res) => {
   return req.session.user
-    ? res.sendStatus(200).json(req.session.user)
-    : res.sendStatus(401).json({ message: 'Not Authenticated' });
+    ? res.status(200).send(req.session.user)
+    : res.status(401).send({ message: 'Not Authenticated' });
 });
 export default router;
