@@ -20,6 +20,10 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/node": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "jest": "^29.7.0",
     "nodemon": "^3.0.2"
   },
   "type": "module"

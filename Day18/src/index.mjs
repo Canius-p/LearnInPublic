@@ -6,7 +6,6 @@ import passport from 'passport';
 export const app = express();
 
 import indexRoute from './routes/indexRoute.mjs';
-import passportConfig from './config/passport.mjs';
 
 passportConfig(passport);
 app.use(express.json());

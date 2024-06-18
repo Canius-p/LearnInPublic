@@ -11,6 +11,7 @@ import {
 import { mockUsers } from '../utils/constants.mjs';
 import { createUserValidationSchema } from '../utils/validationSchemas.mjs';
 import { resolveIndexByUserId } from '../utils/middleware.mjs';
+import { getUserById, getUserByIds } from '../controller/userContoller';
 const router = Router();
 const app = express();
 
@@ -63,12 +64,7 @@ router.post(
   }
 );
 
-router.get('/api/users/:id', resolveIndexByUserId, (req, res) => {
-  const { findUserIndex } = req;
-  const findUser = mockUsers[findUserIndex];
-  if (!findUser) return res.sendStatus(404);
-  return res.send(findUser);
-});
+router.get('/api/users/:id', resolveIndexByUserId, getUserByIds);
 
 router.put('/api/users/:id', resolveIndexByUserId, (req, res) => {
   const { body, findUserIndex } = req;
