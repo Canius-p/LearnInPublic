@@ -1,0 +1,58 @@
+export const mockUsers = [
+  {
+    id: 1,
+    username: 'nabin',
+    displayName: 'Nabin',
+    password: 'hello123',
+    email: 'nabin@gmail.com',
+  },
+  {
+    id: 2,
+    username: 'jack',
+    displayName: 'Jack',
+    password: 'hello124',
+    email: 'jack@gmail.com',
+  },
+  {
+    id: 3,
+    username: 'adam',
+    displayName: 'Adam',
+    password: 'hellohello',
+    email: 'adam@gmail.com',
+  },
+  {
+    id: 4,
+    username: 'tina',
+    displayName: 'Tina',
+    password: 'test123',
+    email: 'tina@gmail.com',
+  },
+  {
+    id: 5,
+    username: 'jason',
+    displayName: 'Jason',
+    password: 'hello123',
+    email: 'jason@gmail.com',
+  },
+  {
+    id: 6,
+    username: 'henry',
+    displayName: 'Henry',
+    password: 'hello123',
+    email: 'henry@gmail.com',
+  },
+  {
+    id: 7,
+    username: 'marilyn',
+    displayName: 'Marilyn',
+    password: 'hello123',
+    email: 'marilyn@gmail.com',
+  },
+  {
+    id: 8,
+    username: 'john',
+    displayName: 'John',
+    password: 'hello123',
+    email: 'john@gmail.com',
+  },
+];
