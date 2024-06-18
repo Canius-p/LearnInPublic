@@ -7,7 +7,6 @@ export const app = express();
 
 import indexRoute from './routes/indexRoute.mjs';
 
-passportConfig(passport);
 app.use(express.json());
 app.use(cookieParser('hello'));
 app.use(

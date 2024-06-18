@@ -11,7 +11,7 @@ import {
 import { mockUsers } from '../utils/constants.mjs';
 import { createUserValidationSchema } from '../utils/validationSchemas.mjs';
 import { resolveIndexByUserId } from '../utils/middleware.mjs';
-import { getUserById, getUserByIds } from '../controller/userContoller';
+import getUserByIds from '../controller/userContoller.mjs';
 const router = Router();
 const app = express();
 

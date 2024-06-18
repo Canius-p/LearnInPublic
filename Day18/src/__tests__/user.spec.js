@@ -1,4 +1,4 @@
-const { getUserById } = require('../controller/userContoller');
+const { getUserById } = require('../controller/userContoller.mjs');
 
 const mockRequest = {
   findUserIndex: 1,
@@ -12,5 +12,6 @@ const mockResponse = {
 describe('user test', () => {
   it('should get user by id', () => {
     getUserById(mockRequest, mockResponse);
+    expect(mockResponse.send).toHaveBeenCalled();
   });
 });
