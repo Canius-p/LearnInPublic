@@ -29,3 +29,8 @@ To write an effective readme, follow these best practices:
 6. Keep the readme up to date: As your project evolves, make sure to update the readme to reflect any changes or updates. This will help users understand how to use the project and troubleshoot any issues they may encounter.
 
 By following these best practices, you can create a readme that is clear, concise, and helpful for users. A well-written readme can make your project more accessible and user-friendly, helping to increase its adoption and success.
+
+Example:
+https://github.com/othneildrew/Best-README-Template
+
+https://github.com/dbader/readme-template?source=post_page-----7ac01da88ab3--------------------------------
